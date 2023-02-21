@@ -1,4 +1,9 @@
-def get_super(x):
+### Program to display the binomial expansion of two variables to the given power.
+### Designed and programmed by Harivansh Mehta.
+### Copyright © 2022
+### All rights reserved.
+
+def get_super(x): # Function to display powers as superscripts
     superscript = {
         0 : '⁰',
         1 : '¹',
@@ -15,26 +20,30 @@ def get_super(x):
     for i in str(x):
         s.append(superscript[int(i)])
     return ''.join(s)
+
 a = input("Enter the first variable: ")
 b = input("Enter the second variable: ")
 n = int(input("Enter the power: "))
-def fact(n):
+
+def fact(n): # Factorial function: Used as part of the combination function
     if n == 0:
         return 1
     else:
         return n * fact(n-1)
-def comb(n, r):
+    
+def comb(n, r): # Combination function: Used to calculate nCr for given values of n and r
     return fact(n)//(fact(n-r)*fact(r))
+
 ''' Binomial Expansion: Summation from r = 0 to r = n of [comb(n, r) * a^(n-r) * b^r]'''
-def binomial(a, b, n):
+def binomial(a, b, n): # MAIN FUNCTION
     ac, bc = 1, 1
     try:
-        ac = int(''.join([i for i in list(a) if i.isdigit()]))
+        ac = int(''.join([i for i in list(a) if i.isdigit()])) # Separate the digit and string from the variable for power calculation
         ast = ''.join([i for i in list(a) if not i.isdigit()])
     except ValueError:
         pass 
     try:
-        bc = int(''.join([i for i in list(b) if i.isdigit()]))
+        bc = int(''.join([i for i in list(b) if i.isdigit()])) # Separate the digit and string from the variable for power calculation
         bst = ''.join([i for i in list(b) if not i.isdigit()])
     except ValueError:
         pass
@@ -78,4 +87,5 @@ def binomial(a, b, n):
             else:
                 ans.append(str(comb(n, r))+a+get_super(str(n-r))+b+get_super(str(r)))
     return '  +  '.join(ans)
+
 print(f"The Binomial Expansion for ({a}+{b}){get_super(str(n))} is: {binomial(a, b, n)}")
