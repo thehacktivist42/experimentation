@@ -1,8 +1,20 @@
 def get_super(x):
-    normal = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+-=()"
-    super_s = "ᴬᴮᶜᴰᴱᶠᴳᴴᴵᴶᴷᴸᴹᴺᴼᴾQᴿˢᵀᵁⱽᵂˣʸᶻᵃᵇᶜᵈᵉᶠᵍʰᶦʲᵏˡᵐⁿᵒᵖ۹ʳˢᵗᵘᵛʷˣʸᶻ⁰¹²³⁴⁵⁶⁷⁸⁹⁺⁻⁼⁽⁾"
-    res = x.maketrans(''.join(normal), ''.join(super_s))
-    return x.translate(res)
+    superscript = {
+        0 : '⁰',
+        1 : '¹',
+        2 : '²',
+        3 : '³',
+        4 : '⁴',
+        5 : '⁵',
+        6 : '⁶',
+        7 : '⁷',
+        8 : '⁸',
+        9 : '⁹'
+    }
+    s = []
+    for i in str(x):
+        s.append(superscript[int(i)])
+    return ''.join(s)
 a = input("Enter the first variable: ")
 b = input("Enter the second variable: ")
 n = int(input("Enter the power: "))
