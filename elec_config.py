@@ -87,3 +87,4 @@ if n <= 118: # For elements present in periodic table, their proper name is used
 else:
     elem = iupacName(n) # For elements not present in periodic table, their IUPAC name is used.
 print(f"The electronic configuration of the element {elem} having atomic number {n} is:", electronicConfiguration(n))
+end = input("Press Enter to quit.")
