@@ -89,3 +89,4 @@ def binomial(a, b, n): # MAIN FUNCTION
     return '  +  '.join(ans)
 
 print(f"The Binomial Expansion for ({a}+{b}){get_super(str(n))} is: {binomial(a, b, n)}")
+end = input("Press Enter to quit")
